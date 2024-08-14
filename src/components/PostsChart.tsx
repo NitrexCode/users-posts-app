@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
-import { ChartData } from 'chart.js'
+import {
+  Chart,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ChartData,
+} from 'chart.js'
 
 interface Post {
   userId: number
@@ -16,6 +25,8 @@ interface User {
   email: string
   posts: Post[]
 }
+
+Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const PostsChart: React.FC = () => {
   const users = useSelector(

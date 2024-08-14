@@ -1,17 +1,33 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { AppDispatch, RootState } from '../redux/store'
 import { fetchUsers } from '../redux/usersSlice'
 
-useEffect(() => {
-  dispatch(fetchUsers())
-}, [dispatch])
+import UserItem from './UserItem'
+
+interface User {
+  id: number
+  name: string
+  email: string
+}
 
 const UserList: React.FC = () => {
-  const dispatch = useDispatch()
-  const users = useSelector((state: any) => state.users.users)
+  const dispatch: AppDispatch = useDispatch()
 
-  return <div>{/* Users will be rendered here */}</div>
+  const users = useSelector((state: RootState) => state.users.users)
+
+  useEffect(() => {
+    dispatch(fetchUsers())
+  }, [dispatch])
+
+  return (
+    <div>
+      {users.map((user: User) => (
+        <UserItem key={user.id} user={user} />
+      ))}
+    </div>
+  )
 }
 
 export default UserList

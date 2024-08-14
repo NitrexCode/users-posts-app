@@ -1,7 +1,13 @@
 import React from 'react'
 import { Card, CardContent, Typography } from '@mui/material'
+interface User {
+  id: number
+  name: string
+  email: string
+}
+
 interface UserItemProps {
-  user: any
+  user: User
 }
 
 const UserItem: React.FC<UserItemProps> = ({ user }) => {

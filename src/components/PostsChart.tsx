@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Bar } from 'react-chartjs-2'
-
-import { RootState } from '../redux/store'
+import { useSelector } from 'react-redux'
+import { ChartData } from 'chart.js'
 
 interface Post {
   userId: number
@@ -19,8 +18,16 @@ interface User {
 }
 
 const PostsChart: React.FC = () => {
-  const [chartData, setChartData] = useState({})
-  const users = useSelector((state: RootState) => state.users.users)
+  const users = useSelector(
+    (state: { users: { users: User[] } }) => state.users.users,
+  )
+
+  const [chartData, setChartData] = useState<
+    ChartData<'bar', number[], string>
+  >({
+    labels: [],
+    datasets: [],
+  })
 
   useEffect(() => {
     const userNames = users.map((user: User) => user.name)

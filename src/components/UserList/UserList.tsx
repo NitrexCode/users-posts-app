@@ -1,16 +1,10 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { AppDispatch, RootState } from '../redux/store'
-import { fetchUsers } from '../redux/usersSlice'
-
-import UserItem from './UserItem'
-
-interface User {
-  id: number
-  name: string
-  email: string
-}
+import { AppDispatch, RootState } from '../../redux/store'
+import { fetchUsers } from '../../redux/usersSlice'
+import './UserList.css'
+import { UserItem } from '../'
 
 const UserList: React.FC = () => {
   const dispatch: AppDispatch = useDispatch()
@@ -22,8 +16,8 @@ const UserList: React.FC = () => {
   }, [dispatch])
 
   return (
-    <div>
-      {users.map((user: User) => (
+    <div className="user-list">
+      {users.map((user) => (
         <UserItem key={user.id} user={user} />
       ))}
     </div>

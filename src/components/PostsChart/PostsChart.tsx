@@ -12,19 +12,8 @@ import {
   ChartData,
 } from 'chart.js'
 
-interface Post {
-  userId: number
-  id: number
-  title: string
-  body: string
-}
-
-interface User {
-  id: number
-  name: string
-  email: string
-  posts: Post[]
-}
+import './PostsChart.css'
+import { User } from '../../types/types' // Importing the User type
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 

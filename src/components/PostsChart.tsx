@@ -3,10 +3,23 @@ import { useSelector } from 'react-redux'
 import { Bar } from 'react-chartjs-2'
 
 const PostsChart: React.FC = () => {
-  const users = useSelector((state: any) => state.users.users)
   const [chartData, setChartData] = useState({})
+  const users = useSelector((state: any) => state.users.users)
+  useEffect(() => {
+    const userNames = users.map((user: any) => user.name)
+    const postCounts = users.map((user: any) => user.posts.length)
 
-  useEffect(() => {}, [users])
+    setChartData({
+      labels: userNames,
+      datasets: [
+        {
+          label: 'Number of Posts',
+          data: postCounts,
+          backgroundColor: 'rgba(75,192,192,1)',
+        },
+      ],
+    })
+  }, [users])
 
   return <Bar data={chartData} />
 }

@@ -13,7 +13,7 @@ import {
 } from 'chart.js'
 
 import './PostsChart.css'
-import { User } from '../../types/types' // Importing the User type
+import { User } from '../../types/types'
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 

@@ -16,16 +16,19 @@ const UserItem: React.FC<UserItemProps> = ({ user }) => {
         <Typography color="textSecondary">Phone: {user.phone}</Typography>
         <Typography color="textSecondary">Website: {user.website}</Typography>
         <Typography color="textSecondary">
-          Address: {user.address.street}, {user.address.suite},{' '}
-          {user.address.city} {user.address.zipcode}
+          Address: {user.address?.street || 'N/A'},{' '}
+          {user.address?.suite || 'N/A'}, {user.address?.city || 'N/A'}{' '}
+          {user.address?.zipcode || 'N/A'}
         </Typography>
         <Typography color="textSecondary">
-          Company: {user.company.name}
+          Company: {user.company?.name || 'N/A'}
         </Typography>
         <Typography color="textSecondary">
-          Catchphrase: {user.company.catchPhrase}
+          Catchphrase: {user.company?.catchPhrase || 'N/A'}
         </Typography>
-        <Typography color="textSecondary">BS: {user.company.bs}</Typography>
+        <Typography color="textSecondary">
+          BS: {user.company?.bs || 'N/A'}
+        </Typography>
       </CardContent>
     </Card>
   )

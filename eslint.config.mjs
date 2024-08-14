@@ -17,11 +17,12 @@ export default [
         document: 'readonly',
         window: 'readonly',
         HTMLElement: 'readonly',
-        __dirname: 'readonly', // Add Node.js globals
+        __dirname: 'readonly',
         require: 'readonly',
         module: 'readonly',
         process: 'readonly',
         Buffer: 'readonly',
+        console: 'readonly',
       },
     },
     plugins: {
@@ -57,6 +58,9 @@ export default [
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: typescriptParser,
+      globals: {
+        console: 'readonly',
+      },
     },
     plugins: {
       '@typescript-eslint': typescriptPlugin,

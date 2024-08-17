@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Grid } from '@mui/material' // Import Material-UI Grid
 
 import { AppDispatch, RootState } from '../../redux/store'
 import { fetchUsers } from '../../redux/usersSlice'
-import './UserList.css'
 import { UserItem } from '../'
 
 const UserList: React.FC = () => {
@@ -16,11 +16,13 @@ const UserList: React.FC = () => {
   }, [dispatch])
 
   return (
-    <div className="user-list">
+    <Grid container spacing={3}>
       {users.map((user) => (
-        <UserItem key={user.id} user={user} />
+        <Grid item xs={12} sm={6} key={user.id}>
+          <UserItem user={user} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   )
 }
 

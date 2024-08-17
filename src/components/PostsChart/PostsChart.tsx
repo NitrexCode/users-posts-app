@@ -65,23 +65,23 @@ const PostsChart: React.FC = () => {
         {
           label: 'Number of Posts',
           data: postCounts,
-          backgroundColor: 'rgba(75,192,192,1)',
+          backgroundColor: 'oklch(74.27% 0.104 195.15)',
         },
         {
           label: 'Average Post Length',
           data: averagePostLengths,
-          backgroundColor: 'rgba(153,102,255,1)',
+          backgroundColor: 'oklch(63.96% 0.217 294.87)',
         },
         {
           label: 'Longest Post Length',
           data: longestPostLengths,
-          backgroundColor: 'rgba(255,159,64,1)',
+          backgroundColor: 'oklch(78.48% 0.155 61.3)',
         },
       ],
     })
   }, [users])
 
-  return <Bar data={chartData} />
+  return <Bar data={chartData} className="posts-chart" />
 }
 
 export default PostsChart

@@ -16,14 +16,14 @@ const App: React.FC = () => {
           </Typography>
         </Box>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <Box sx={{ p: 2 }}>
-              <UserList />
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} lg={6}>
             <Box sx={{ p: 2 }}>
               <PostsChart />
+            </Box>
+          </Grid>
+          <Grid item xs={12} lg={6}>
+            <Box sx={{ p: 2 }}>
+              <UserList />
             </Box>
           </Grid>
         </Grid>

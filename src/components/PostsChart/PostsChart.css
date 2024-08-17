@@ -1,0 +1,7 @@
+.posts-chart{
+    border:1px solid oklch(0% 0 0);
+    border-radius: 12px;
+    padding:10px;
+    order:1;
+    background:oklch(90% 0 0);
+}
